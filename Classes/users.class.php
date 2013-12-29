@@ -27,6 +27,10 @@ class userCommand {
                         }else{
                             $this->functionResponse=$this->error;
                         }
+            }else if(isset($this->post['add'])) {
+                        if(!$this->addUser()) {
+                            $this->functionResponse=$this->error;
+                        }
             }
     }
     
@@ -57,5 +61,38 @@ class userCommand {
                       return false;
         }
     }
+    
+    private function addUser() {
+        try{
+             if(!isset($this->post['username'])) {
+                throw new Exception("Username not set");
+            }  
+            if(!isset($this->post['password'])) {
+                throw new Exception("Password not set");
+            }
+            $sql = "SELECT ID FROM users WHERE username=?";
+            $args = array($this->post['username']);
+            $results = $this->db->rawQuery($sql, $args);
+            if(count($results)) {
+                throw new Exception("Username already exists");
+            }
+            $insert = array(
+                'username'=>$this->post['username'],
+                'password'=>$this->encryptUserPassword($this->post['password'])
+            );
+                    if($this->db->insert('users', $insert)) {
+                        $this->functionResponse = $this->db->getInsertId();
+                        return true;
+                    }else{
+                        throw new Exception("Error while inserting user");
+                    }
+        }catch(Exception $e) {
+                    $this->error = $e->getMessage();
+                    return false;
+        }
+    }
+    
+    
+    
 }
 ?>

@@ -18,13 +18,13 @@ Post to run commands
 Commands:
 <ul>
 <li>valid</li>
-
+<li>add</li>
 </ul>
 
 
 
 
-Valid:
+<b>Valid:</b>
 Validate that user exists and password is correct. 
 
 Other Posts Required:
@@ -33,7 +33,34 @@ username
 password
 </pre>
 
+Returns:
+<pre>
+1 or 0. 
+1 = Valid User
+0 = Invalid User
+</pre>
+
 EXAMPLE: 
 <pre>
 index.php?user&valid&username=USERA&password=PASSWORDA
+</pre>
+
+
+<b>add:</b>
+Adds user to database.
+
+Other Posts Required:
+<pre>
+username
+password
+</pre>
+
+Returns:
+<pre>
+Insert ID or error
+</pre>
+
+EXAMPLE
+<pre>
+index.php?user&add&username=USERB&password=PASSWORDB
 </pre>
