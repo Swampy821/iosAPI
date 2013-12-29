@@ -40,8 +40,8 @@ class Table {
 
 		if (! (bool) $this->created) {
 			// Add a default `id` column, make it autoincrement and primary key.
-			$this->column('id', 'integer', array('null' => FALSE, 'autoincrement' => TRUE));
-			$this->index('PRIMARY', 'id');
+			$this->column('ID', 'integer', array('null' => FALSE, 'autoincrement' => TRUE));
+			$this->index('PRIMARY', 'ID');
 		}
 
 		if ($options === NULL) {
