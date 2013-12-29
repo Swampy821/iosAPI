@@ -1,4 +1,13 @@
 
+<b>Setup</b>
+
+To setup you must have a database named iosAPI. Using the terminal navigate to the root directory and run
+<pre>
+php ladder.php migrate
+</pre> 
+
+This will run all migrations and get your database up to date. 
+
 <b>Authorization for use.</b>
 
 You can set authorization codes within the authConfig.php file. You send it through as an empty post

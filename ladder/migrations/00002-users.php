@@ -1,6 +1,6 @@
 <?php
 
-class Test1_Migration_00001 extends Migration {
+class Users_Migration_00002 extends Migration {
 	protected $min_version = '0.8.1';
 	// protected $databases = FALSE;
 	// protected $import_data = array();
@@ -10,13 +10,11 @@ class Test1_Migration_00001 extends Migration {
 	// protected $unimport_key_fields = FALSE; // or an array of table => array(key, fields).
 
 	public function up() {
-		// $this->create_table('new_table')
-		// $this->table('table')
-		// $this->set('key', 'value');
+                    $this->table("users")
+                        ->column("email", "varchar",array('default'=>null, 'limit'=>'50'));
 	}
 
 	public function down() {
-		// $this->table('new_table')->drop();
-		// $value = $this->get('key');
+                            $this->table("users")->drop_column("email");
 	}
 }
