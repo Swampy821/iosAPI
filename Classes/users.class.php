@@ -22,7 +22,7 @@ class userCommand {
     
     private function process() {
             if(isset($this->post['valid'])) {
-                        if($this->validUserAndPass()) {
+                       if($this->validUserAndPass()) {
                             $this->functionResponse=true;
                         }else{
                             $this->functionResponse=$this->error;
@@ -80,6 +80,17 @@ class userCommand {
                 'username'=>$this->post['username'],
                 'password'=>$this->encryptUserPassword($this->post['password'])
             );
+            //------------------------------------------//
+            //Add fields here
+            
+            if(isset($this->post['email'])) {
+                $insert['email'] = $this->post['email'];
+            }
+            
+            
+            
+            //----------------------------------------//
+            
                     if($this->db->insert('users', $insert)) {
                         $this->functionResponse = $this->db->getInsertId();
                         return true;
