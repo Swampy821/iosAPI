@@ -1,5 +1,6 @@
 
-Authorization for use.
+<b>Authorization for use.</b>
+
 You can set authorization codes within the authConfig.php file. You send it through as an empty post
 otherwise you will get a not authorized error. 
 
@@ -28,7 +29,7 @@ Validate that user exists and password is correct.
 
 Other Posts Required:
 <pre>
- username
+username
 password
 </pre>
 
