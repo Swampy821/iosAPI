@@ -9,30 +9,30 @@ Authorization for use.
     </pre>
 
 
-<b>User API</b> 
+<b>User API</b>
 
-    Post to run commands
-    <pre>user</pre>
+Post to run commands
+<pre>user</pre>
 
-    Commands:
-    <ul>
-        <li>valid</li>
+Commands:
+<ul>
+<li>valid</li>
 
-    </ul>
+</ul>
 
 
-    
 
-    Valid:
-        Validate that user exists and password is correct. 
-        
-        Other Posts Required:
-        <pre>
-            username
-            password
-        </pre>
 
-        EXAMPLE: 
-        <pre>
-                index.php?user&valid&username=USERA&password=PASSWORDA
-        </pre>
+Valid:
+Validate that user exists and password is correct. 
+
+Other Posts Required:
+<pre>
+    username
+    password
+</pre>
+
+EXAMPLE: 
+<pre>
+        index.php?user&valid&username=USERA&password=PASSWORDA
+</pre>
