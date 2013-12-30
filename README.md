@@ -107,6 +107,10 @@ Returns:
 Note ID
 </pre>
 
+EXAMPLE:
+<pre>
+index.php?note&update&AUTHID&userID=1&noteID=1&noteData=THSI IS A NOTE
+</pre>
 
 <b>get:</b>
 Gets the specified ID

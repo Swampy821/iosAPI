@@ -27,9 +27,14 @@ class noteCommand {
                   }
             }
             if(isset($this->post['get'])) {
-                        if(!$this->getNote()) {
-                            $this->functionResponse = $this->error;
-                        }
+                    if(!$this->getNote()) {
+                        $this->functionResponse = $this->error;
+                    }
+            }
+            if(isset($this->post['remove'])) {
+                   if(!$this->removeNote()) {
+                       $this->functionResponse = $this->error;
+                   }
             }
     }
     
@@ -95,10 +100,28 @@ class noteCommand {
             $results = $this->db->rawQuery($sql,$args);
             if(count($results)) { 
                 $this->functionResponse =  json_encode($results);
+                return true;
             }else{
                 throw new Exception("Failed to select Note");
             }
-            ///CONTINUE HERE AFTER DOCUMENTATION
+        }catch(Exception $e) {
+                    $this->error = $e->getMessage();
+                    return false;
+        }
+    }
+    private function removeNote() {
+        try{
+            $noteID = $this->post['noteID'];
+            if($nodeID==null) {
+                throw new Exception("Note ID must be set.");
+            }
+                    $this->db->where("ID", $noteID);
+                            if($this->db->delete("notes")) {
+                                $this->functionResponse = 1;
+                                return true;
+                            }else{
+                                throw new Exception("Error removing note.");
+                            }
         }catch(Exception $e) {
                     $this->error = $e->getMessage();
                     return false;
