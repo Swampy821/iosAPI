@@ -122,9 +122,13 @@ noteID
 
 Returns:
 <pre>
-Note Data Array
+Note Data JSON Array
 </pre>
 
+EXAMPLE:
+<pre>
+index.php?note&get&AUTHID&noteID=5
+</pre>
 
 <b>remove:</b>
 Removes note for specific ID
@@ -138,4 +142,9 @@ noteID
 Returns:
 <pre>
 1 = success
+</pre>
+
+EXAMPLE: 
+<pre>
+index.php?note&remove&AUTHID&noteID=5
 </pre> 
