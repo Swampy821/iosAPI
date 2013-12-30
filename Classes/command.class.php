@@ -7,9 +7,11 @@ abstract class Command{
                     $u =  new userCommand($post);
                      return $u->getFunctionResponse();
             }
-            
-       
-       
+            //PROCESS NOTES
+            if(isset($post['note'])) {
+                    $n = new noteCommand($post);
+                    return $n->getFunctionResponse();
+            }
    }
 }
 ?>
