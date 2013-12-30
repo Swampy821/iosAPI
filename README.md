@@ -73,3 +73,65 @@ EXAMPLE
 <pre>
 index.php?user&add&username=USERB&password=PASSWORDB
 </pre>
+
+
+
+<b>Notes API</b>
+
+
+Post to run commands
+<pre>note</pre>
+
+Commands:
+<ul>
+<li>update</li>
+<li>get</li>
+<li>remove</li>
+</ul>
+
+
+
+
+<b>update:</b>
+Updates or adds a note.
+
+Other Posts Required:
+<pre>
+noteID (OPTIONAL)
+noteData
+userID
+</pre>
+
+Returns:
+<pre>
+Note ID
+</pre>
+
+
+<b>get:</b>
+Gets the specified ID
+
+Other posts required:
+<pre>
+noteID
+</pre>
+
+Returns:
+<pre>
+Note Data Array
+</pre>
+
+
+<b>remove:</b>
+Removes note for specific ID
+
+Other posts required:
+<pre>
+noteID
+</pre>
+
+
+Returns:
+<pre>
+1 = success
+</pre> 
