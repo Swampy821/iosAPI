@@ -36,6 +36,11 @@ class noteCommand {
                        $this->functionResponse = $this->error;
                    }
             }
+            if(isset($this->post['getall'])) {
+                    if(!$this->getAllNotes()) {
+                        $this->functionResponse = $this->error;
+                    }
+            }
     }
     
     private function addNote() {
@@ -128,6 +133,20 @@ class noteCommand {
         }
     }
     
-    
+    private function getAllNotes() {
+        try{
+            $sql = "SELECT notes.*, users.username FROM notes, users WHERE users.ID=notes.userID ORDER BY Tstamp DESC";
+            $results = $this->db->rawQuery($sql);
+            if(!count($results)) {
+                throw new Exception("No results returned.");
+            }else{
+                $this->functionResponse = json_encode($results);
+                return true;
+            }       
+        }catch(Exception $e) {
+            $this->error = $e->getMessage();
+            return false;
+        }
+    }
 }
 ?>

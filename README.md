@@ -87,6 +87,7 @@ Commands:
 <li>update</li>
 <li>get</li>
 <li>remove</li>
+<li>getall</li>
 </ul>
 
 
@@ -147,4 +148,18 @@ Returns:
 EXAMPLE: 
 <pre>
 index.php?note&remove&AUTHID&noteID=5
+</pre> 
+
+<b>getall:</b>
+Gets all the notes.
+
+
+Returns:
+<pre>
+json array of all notes.
+</pre>
+
+EXAMPLE: 
+<pre>
+index.php?note&getall&AUTHID
 </pre> 
